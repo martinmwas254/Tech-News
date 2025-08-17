@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech News Hub</title>
+    <title>News Hub</title>
     <!-- Use Inter font from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
     <!-- Header Section -->
     <header class="bg-indigo-600 text-white shadow-lg">
         <div class="container py-6 flex flex-col md:flex-row justify-between items-center">
-            <h1 class="text-3xl font-bold mb-4 md:mb-0">Tech News Hub</h1>
+            <h1 class="text-3xl font-bold mb-4 md:mb-0">News Hub</h1>
             <form id="search-form" class="w-full md:w-auto flex flex-col sm:flex-row items-center gap-2">
                 <input 
                     type="text" 
@@ -81,7 +81,7 @@
     <script>
         // Use a free news API like GNews. You'll need to sign up to get your own API key.
         // Once you have your key, replace "YOUR_API_KEY" below.
-        const API_KEY = "YOUR_API_KEY"; 
+        const API_KEY = "35ee25be4a14d151f764cb02dea34f98"; 
 
         // Get references to DOM elements
         const newsContainer = document.getElementById('news-container');
@@ -103,11 +103,11 @@
             errorMessage.classList.add('hidden');
 
             // Check if the API key is set
-            if (API_KEY === "YOUR_API_KEY" || !API_KEY) {
-                loadingMessage.classList.add('hidden');
-                newsContainer.innerHTML = '<div class="text-center p-8 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 rounded-lg"><p class="font-bold">API Key Required!</p><p>Please get a free API key from GNews and replace "YOUR_API_KEY" in the JavaScript code.</p></div>';
-                return;
-            }
+            if (!API_KEY) {
+    loadingMessage.classList.add('hidden');
+    newsContainer.innerHTML = '<div class="text-center p-8 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 rounded-lg"><p class="font-bold">API Key Required!</p><p>Please get a free API key from GNews and add it to the JavaScript code.</p></div>';
+    return;
+}
 
             // Update the section heading
             const formattedQuery = query.charAt(0).toUpperCase() + query.slice(1);
